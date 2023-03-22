@@ -39,8 +39,6 @@ class QuizViewController: UIViewController {
         sv.spacing = 10
         sv.translatesAutoresizingMaskIntoConstraints = false
         sv.distribution = .fillEqually
-        sv.layer.borderWidth = 3.0
-        sv.layer.borderColor = UIColor.label.cgColor
         sv.layer.cornerRadius = 12
         sv.backgroundColor = .systemBackground
         return sv
@@ -49,13 +47,21 @@ class QuizViewController: UIViewController {
     @objc private func updateUI() {
         if quizBrain.questionNumber < quizBrain.questions.count {
             questionLabel.text = quizBrain.getQuestionText()
-             createAnswerButtons()
+            createAnswerButtons()
+            resetButtonsToRed()
+            
         }
         updateScore()
     }
     
+    private func resetButtonsToRed() {
+        for button in answerButtons {
+            button.configuration?.baseBackgroundColor = .systemRed
+        }
+    }
     
-    func createAnswerButtons() {
+    
+    private func createAnswerButtons() {
         for (index, option) in
                 quizBrain.questions[quizBrain.questionNumber].options.enumerated() {
             let button = UIButton()
@@ -67,9 +73,10 @@ class QuizViewController: UIViewController {
             button.addTarget(self, action: #selector(checkAnswer), for: .touchUpInside)
             button.configuration?.title = option
             answerButtons.append(button)
+            print(option)
         }
+        updateButtonTitles()
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,12 +92,57 @@ class QuizViewController: UIViewController {
         scoreLabel.text = "Score: \(quizBrain.score)"
     }
     
+    private func shakeAnimation() -> CAAnimation {
+        let animation = CABasicAnimation(keyPath: "opacity")
+        animation.fromValue = 1
+        animation.toValue = 0
+        animation.duration = 0.2
+        animation.autoreverses = true
+        animation.repeatCount = 2
+        return animation
+    }
+    
     @objc private func checkAnswer(_sender: UIButton) {
         if _sender.tag == quizBrain.questions[quizBrain.questionNumber].answerIndex {
             quizBrain.score += 1
             quizBrain.questionNumber += 1
-            //print(quizBrain.questionNumber)
-            Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
+            _sender.configuration?.baseBackgroundColor = .systemGreen
+            
+            _sender.layer.add(shakeAnimation(), forKey: "opacity")
+            
+
+            if quizBrain.questionNumber < quizBrain.questions.count {
+                createAnswerButtons()
+                
+                Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
+                
+                UIView.animate(withDuration: 0.1, animations: {
+                    _sender.transform = CGAffineTransform(translationX: 10, y: 0)
+                }, completion: { _ in
+                    UIView.animate(withDuration: 0.1, animations: {
+                        _sender.transform = CGAffineTransform(translationX: -10, y: 0)
+                    }, completion: { _ in
+                        UIView.animate(withDuration: 0.1, animations: {
+                            _sender.transform = CGAffineTransform.identity
+                        })
+                    })
+                })
+            } else {
+                // if questionNumber goes out of bounds, show an alert or perform some other action
+                let alert = UIAlertController(title: "Quiz Complete", message: "You have finished the quiz!", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                present(alert, animated: true, completion: nil)
+                quizBrain.questionNumber = 0
+                quizBrain.score = 0
+                updateUI()
+            }
+        }
+    }
+
+    
+    private func updateButtonTitles() {
+        for (index, option) in quizBrain.questions[quizBrain.questionNumber].options.enumerated() {
+            answerButtons[index].setTitle(option, for: .normal)
         }
         
     }
@@ -107,10 +159,8 @@ class QuizViewController: UIViewController {
             buttonStack.addArrangedSubview(button)
         }
         
-
         view.addSubview(buttonStack)
         view.addSubview(scoreLabel)
-        
         
         NSLayoutConstraint.activate([
             questionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
