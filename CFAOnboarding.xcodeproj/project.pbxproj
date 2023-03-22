@@ -10,9 +10,20 @@
 		9F8E9E2429C374BC00893102 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E9E2329C374BC00893102 /* AppDelegate.swift */; };
 		9F8E9E2629C374BC00893102 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E9E2529C374BC00893102 /* SceneDelegate.swift */; };
 		9F8E9E2829C374BC00893102 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E9E2729C374BC00893102 /* ViewController.swift */; };
-		9F8E9E2B29C374BC00893102 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F8E9E2929C374BC00893102 /* Main.storyboard */; };
 		9F8E9E2D29C374BD00893102 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F8E9E2C29C374BD00893102 /* Assets.xcassets */; };
 		9F8E9E3029C374BD00893102 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F8E9E2E29C374BD00893102 /* LaunchScreen.storyboard */; };
+		9F8E9E3829C3765A00893102 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E9E3729C3765A00893102 /* Task.swift */; };
+		9F8E9E3A29C37AA700893102 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E9E3929C37AA700893102 /* TaskTableViewCell.swift */; };
+		9F8E9E4429C381E700893102 /* Rubik-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F8E9E3D29C381E700893102 /* Rubik-VariableFont_wght.ttf */; };
+		9F8E9E4529C381E700893102 /* Rubik-Italic-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F8E9E3E29C381E700893102 /* Rubik-Italic-VariableFont_wght.ttf */; };
+		9F8E9E4629C381E700893102 /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F8E9E4029C381E700893102 /* Rubik-Bold.ttf */; };
+		9F8E9E4729C381E700893102 /* Rubik-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F8E9E4129C381E700893102 /* Rubik-Italic.ttf */; };
+		9F8E9E4829C381E700893102 /* Rubik-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F8E9E4229C381E700893102 /* Rubik-SemiBold.ttf */; };
+		9F8E9E4929C381E700893102 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F8E9E4329C381E700893102 /* Rubik-Regular.ttf */; };
+		9F8E9E4B29C3943400893102 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E9E4A29C3943400893102 /* DetailViewController.swift */; };
+		9F8E9E4D29C7CD9E00893102 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E9E4C29C7CD9E00893102 /* QuizViewController.swift */; };
+		9F8E9E4F29C7CEA300893102 /* QuizBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E9E4E29C7CEA300893102 /* QuizBrain.swift */; };
+		9F8E9E5129CA49EE00893102 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E9E5029CA49EE00893102 /* Question.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +31,21 @@
 		9F8E9E2329C374BC00893102 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F8E9E2529C374BC00893102 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9F8E9E2729C374BC00893102 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9F8E9E2A29C374BC00893102 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9F8E9E2C29C374BD00893102 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F8E9E2F29C374BD00893102 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F8E9E3129C374BD00893102 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F8E9E3729C3765A00893102 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		9F8E9E3929C37AA700893102 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		9F8E9E3D29C381E700893102 /* Rubik-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		9F8E9E3E29C381E700893102 /* Rubik-Italic-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Italic-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		9F8E9E4029C381E700893102 /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Bold.ttf"; sourceTree = "<group>"; };
+		9F8E9E4129C381E700893102 /* Rubik-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Italic.ttf"; sourceTree = "<group>"; };
+		9F8E9E4229C381E700893102 /* Rubik-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-SemiBold.ttf"; sourceTree = "<group>"; };
+		9F8E9E4329C381E700893102 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
+		9F8E9E4A29C3943400893102 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		9F8E9E4C29C7CD9E00893102 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
+		9F8E9E4E29C7CEA300893102 /* QuizBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizBrain.swift; sourceTree = "<group>"; };
+		9F8E9E5029CA49EE00893102 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,12 +81,48 @@
 				9F8E9E2329C374BC00893102 /* AppDelegate.swift */,
 				9F8E9E2529C374BC00893102 /* SceneDelegate.swift */,
 				9F8E9E2729C374BC00893102 /* ViewController.swift */,
-				9F8E9E2929C374BC00893102 /* Main.storyboard */,
+				9F8E9E3929C37AA700893102 /* TaskTableViewCell.swift */,
+				9F8E9E4A29C3943400893102 /* DetailViewController.swift */,
+				9F8E9E4C29C7CD9E00893102 /* QuizViewController.swift */,
+				9F8E9E3729C3765A00893102 /* Task.swift */,
+				9F8E9E4E29C7CEA300893102 /* QuizBrain.swift */,
+				9F8E9E5029CA49EE00893102 /* Question.swift */,
 				9F8E9E2C29C374BD00893102 /* Assets.xcassets */,
+				9F8E9E3B29C381E700893102 /* Fonts */,
 				9F8E9E2E29C374BD00893102 /* LaunchScreen.storyboard */,
 				9F8E9E3129C374BD00893102 /* Info.plist */,
 			);
 			path = CFAOnboarding;
+			sourceTree = "<group>";
+		};
+		9F8E9E3B29C381E700893102 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9F8E9E3C29C381E700893102 /* Rubik */,
+			);
+			name = Fonts;
+			path = ../../../Werdd/Werdd/Fonts;
+			sourceTree = "<group>";
+		};
+		9F8E9E3C29C381E700893102 /* Rubik */ = {
+			isa = PBXGroup;
+			children = (
+				9F8E9E3D29C381E700893102 /* Rubik-VariableFont_wght.ttf */,
+				9F8E9E3E29C381E700893102 /* Rubik-Italic-VariableFont_wght.ttf */,
+				9F8E9E3F29C381E700893102 /* static */,
+			);
+			path = Rubik;
+			sourceTree = "<group>";
+		};
+		9F8E9E3F29C381E700893102 /* static */ = {
+			isa = PBXGroup;
+			children = (
+				9F8E9E4029C381E700893102 /* Rubik-Bold.ttf */,
+				9F8E9E4129C381E700893102 /* Rubik-Italic.ttf */,
+				9F8E9E4229C381E700893102 /* Rubik-SemiBold.ttf */,
+				9F8E9E4329C381E700893102 /* Rubik-Regular.ttf */,
+			);
+			path = static;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +183,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F8E9E4429C381E700893102 /* Rubik-VariableFont_wght.ttf in Resources */,
+				9F8E9E4929C381E700893102 /* Rubik-Regular.ttf in Resources */,
+				9F8E9E4529C381E700893102 /* Rubik-Italic-VariableFont_wght.ttf in Resources */,
+				9F8E9E4729C381E700893102 /* Rubik-Italic.ttf in Resources */,
 				9F8E9E3029C374BD00893102 /* LaunchScreen.storyboard in Resources */,
 				9F8E9E2D29C374BD00893102 /* Assets.xcassets in Resources */,
-				9F8E9E2B29C374BC00893102 /* Main.storyboard in Resources */,
+				9F8E9E4629C381E700893102 /* Rubik-Bold.ttf in Resources */,
+				9F8E9E4829C381E700893102 /* Rubik-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +201,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F8E9E3829C3765A00893102 /* Task.swift in Sources */,
+				9F8E9E4D29C7CD9E00893102 /* QuizViewController.swift in Sources */,
 				9F8E9E2829C374BC00893102 /* ViewController.swift in Sources */,
+				9F8E9E5129CA49EE00893102 /* Question.swift in Sources */,
+				9F8E9E3A29C37AA700893102 /* TaskTableViewCell.swift in Sources */,
+				9F8E9E4F29C7CEA300893102 /* QuizBrain.swift in Sources */,
+				9F8E9E4B29C3943400893102 /* DetailViewController.swift in Sources */,
 				9F8E9E2429C374BC00893102 /* AppDelegate.swift in Sources */,
 				9F8E9E2629C374BC00893102 /* SceneDelegate.swift in Sources */,
 			);
@@ -147,14 +216,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		9F8E9E2929C374BC00893102 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9F8E9E2A29C374BC00893102 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9F8E9E2E29C374BD00893102 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,9 +353,7 @@
 				INFOPLIST_FILE = CFAOnboarding/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,9 +379,7 @@
 				INFOPLIST_FILE = CFAOnboarding/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
