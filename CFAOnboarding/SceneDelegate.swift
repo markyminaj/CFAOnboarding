@@ -33,6 +33,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         quizCatVC.tabBarItem = UITabBarItem(title: "Quiz", image: UIImage(systemName: "book"), tag: 1)
         let viewcontrollers = [listviewVC, quizCatVC]
         tabviewVC.viewControllers = viewcontrollers
+        tabviewVC.title = "Chick-fil-A Onboarding"
+        
         
         window?.rootViewController = UINavigationController(rootViewController: tabviewVC)
         window?.makeKeyAndVisible()

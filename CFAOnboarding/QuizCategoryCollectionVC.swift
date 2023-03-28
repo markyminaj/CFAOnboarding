@@ -10,8 +10,7 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class QuizCategoryCollectionVC: UIViewController {
-    static let quizBrain = QuizBrain()
-    let categories = quizBrain.categories
+    let quizData = QuizBrain().quizData
     let quizType: String = ""
     
     lazy var quizCategoryCollectionView: UICollectionView = {
@@ -54,7 +53,7 @@ class QuizCategoryCollectionVC: UIViewController {
 
 extension QuizCategoryCollectionVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let catCell = categories[indexPath.row]
+        let catCell = quizData[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: QuizCategoryCell.reuseID, for: indexPath) as! QuizCategoryCell
         cell.contentView.backgroundColor = .systemBackground
         cell.configure(with: catCell)
@@ -62,16 +61,21 @@ extension QuizCategoryCollectionVC: UICollectionViewDataSource, UICollectionView
         return cell
     }
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categories.count
+        return quizData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let quizType = categories[indexPath.row].title
-        let destinationVC = QuizViewController(with: quizType)
-        destinationVC.quizType = quizType
-        navigationController?.pushViewController(destinationVC, animated: true)
-        
+        let selectedCategory = quizData[indexPath.row]
+        //print("DEBUG: selected category is: \(selectedCategory.title)")
+        let quizVC = QuizViewController()
+        quizVC.questions = selectedCategory.questions
+        //print("DEBUG: quiz vc questions are: \(quizVC.questions)")
+        navigationController?.pushViewController(quizVC, animated: true)
     }
 }
 

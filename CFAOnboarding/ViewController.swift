@@ -21,6 +21,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setup()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
 }
 
 extension ViewController {
