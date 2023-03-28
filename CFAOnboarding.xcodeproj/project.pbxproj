@@ -20,10 +20,14 @@
 		9F8E9E4729C381E700893102 /* Rubik-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F8E9E4129C381E700893102 /* Rubik-Italic.ttf */; };
 		9F8E9E4829C381E700893102 /* Rubik-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F8E9E4229C381E700893102 /* Rubik-SemiBold.ttf */; };
 		9F8E9E4929C381E700893102 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F8E9E4329C381E700893102 /* Rubik-Regular.ttf */; };
-		9F8E9E4B29C3943400893102 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E9E4A29C3943400893102 /* DetailViewController.swift */; };
+		9F8E9E4B29C3943400893102 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E9E4A29C3943400893102 /* TaskDetailViewController.swift */; };
 		9F8E9E4D29C7CD9E00893102 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E9E4C29C7CD9E00893102 /* QuizViewController.swift */; };
 		9F8E9E4F29C7CEA300893102 /* QuizBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E9E4E29C7CEA300893102 /* QuizBrain.swift */; };
 		9F8E9E5129CA49EE00893102 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E9E5029CA49EE00893102 /* Question.swift */; };
+		9FECCD2B29CD439600097E54 /* QuizCategoryCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FECCD2A29CD439600097E54 /* QuizCategoryCollectionVC.swift */; };
+		9FECCD2D29CD442100097E54 /* QuizCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FECCD2C29CD442100097E54 /* QuizCategory.swift */; };
+		9FECCD2F29CD44AE00097E54 /* QuizStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FECCD2E29CD44AE00097E54 /* QuizStartViewController.swift */; };
+		9FECCD3129CD451C00097E54 /* QuizCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FECCD3029CD451C00097E54 /* QuizCategoryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,10 +46,14 @@
 		9F8E9E4129C381E700893102 /* Rubik-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Italic.ttf"; sourceTree = "<group>"; };
 		9F8E9E4229C381E700893102 /* Rubik-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-SemiBold.ttf"; sourceTree = "<group>"; };
 		9F8E9E4329C381E700893102 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
-		9F8E9E4A29C3943400893102 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		9F8E9E4A29C3943400893102 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		9F8E9E4C29C7CD9E00893102 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		9F8E9E4E29C7CEA300893102 /* QuizBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizBrain.swift; sourceTree = "<group>"; };
 		9F8E9E5029CA49EE00893102 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		9FECCD2A29CD439600097E54 /* QuizCategoryCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCategoryCollectionVC.swift; sourceTree = "<group>"; };
+		9FECCD2C29CD442100097E54 /* QuizCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCategory.swift; sourceTree = "<group>"; };
+		9FECCD2E29CD44AE00097E54 /* QuizStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizStartViewController.swift; sourceTree = "<group>"; };
+		9FECCD3029CD451C00097E54 /* QuizCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCategoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,10 +90,14 @@
 				9F8E9E2529C374BC00893102 /* SceneDelegate.swift */,
 				9F8E9E2729C374BC00893102 /* ViewController.swift */,
 				9F8E9E3929C37AA700893102 /* TaskTableViewCell.swift */,
-				9F8E9E4A29C3943400893102 /* DetailViewController.swift */,
+				9F8E9E4A29C3943400893102 /* TaskDetailViewController.swift */,
 				9F8E9E4C29C7CD9E00893102 /* QuizViewController.swift */,
+				9FECCD2A29CD439600097E54 /* QuizCategoryCollectionVC.swift */,
+				9FECCD2E29CD44AE00097E54 /* QuizStartViewController.swift */,
 				9F8E9E3729C3765A00893102 /* Task.swift */,
+				9FECCD3029CD451C00097E54 /* QuizCategoryCell.swift */,
 				9F8E9E4E29C7CEA300893102 /* QuizBrain.swift */,
+				9FECCD2C29CD442100097E54 /* QuizCategory.swift */,
 				9F8E9E5029CA49EE00893102 /* Question.swift */,
 				9F8E9E2C29C374BD00893102 /* Assets.xcassets */,
 				9F8E9E3B29C381E700893102 /* Fonts */,
@@ -201,14 +213,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FECCD3129CD451C00097E54 /* QuizCategoryCell.swift in Sources */,
 				9F8E9E3829C3765A00893102 /* Task.swift in Sources */,
 				9F8E9E4D29C7CD9E00893102 /* QuizViewController.swift in Sources */,
 				9F8E9E2829C374BC00893102 /* ViewController.swift in Sources */,
+				9FECCD2B29CD439600097E54 /* QuizCategoryCollectionVC.swift in Sources */,
 				9F8E9E5129CA49EE00893102 /* Question.swift in Sources */,
 				9F8E9E3A29C37AA700893102 /* TaskTableViewCell.swift in Sources */,
+				9FECCD2D29CD442100097E54 /* QuizCategory.swift in Sources */,
 				9F8E9E4F29C7CEA300893102 /* QuizBrain.swift in Sources */,
-				9F8E9E4B29C3943400893102 /* DetailViewController.swift in Sources */,
+				9F8E9E4B29C3943400893102 /* TaskDetailViewController.swift in Sources */,
 				9F8E9E2429C374BC00893102 /* AppDelegate.swift in Sources */,
+				9FECCD2F29CD44AE00097E54 /* QuizStartViewController.swift in Sources */,
 				9F8E9E2629C374BC00893102 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

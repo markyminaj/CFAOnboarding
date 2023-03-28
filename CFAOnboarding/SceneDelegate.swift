@@ -23,15 +23,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tabviewVC = UITabBarController()
         tabviewVC.tabBar.backgroundColor = .systemBackground
         tabviewVC.tabBar.tintColor = .systemCyan
-        let quizViewVC = QuizViewController()
+        let quizCatVC = QuizCategoryCollectionVC()
         let listviewVC = ViewController()
         
         listviewVC.title = "Tasks"
         listviewVC.tabBarItem = UITabBarItem(title: "Tasks", image: UIImage(systemName: "pencil.circle"), tag: 0)
         
-        quizViewVC.title = "Quiz"
-        quizViewVC.tabBarItem = UITabBarItem(title: "Quiz", image: UIImage(systemName: "book"), tag: 1)
-        let viewcontrollers = [listviewVC, quizViewVC]
+        quizCatVC.title = "Quiz"
+        quizCatVC.tabBarItem = UITabBarItem(title: "Quiz", image: UIImage(systemName: "book"), tag: 1)
+        let viewcontrollers = [listviewVC, quizCatVC]
         tabviewVC.viewControllers = viewcontrollers
         
         window?.rootViewController = UINavigationController(rootViewController: tabviewVC)

@@ -9,6 +9,8 @@ import UIKit
 
 class QuizViewController: UIViewController {
     var quizBrain = QuizBrain()
+    var quizType: String = ""
+    
     
     lazy var answerButtons: [UIButton] = []
     let questionLabel: UILabel = {
@@ -17,9 +19,6 @@ class QuizViewController: UIViewController {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.lineBreakMode = .byWordWrapping
-        label.layer.borderWidth = 3.0
-        label.layer.borderColor = UIColor.label.cgColor
-        label.layer.cornerRadius = 12
         label.font = .preferredFont(forTextStyle: .title1)
         return label
     }()
@@ -31,6 +30,13 @@ class QuizViewController: UIViewController {
         label.textAlignment = .center
         label.numberOfLines = 0
         return label
+    }()
+    
+    let progressView: UIProgressView = {
+        let prog = UIProgressView()
+        prog.translatesAutoresizingMaskIntoConstraints = false
+        prog.tintColor = .systemGreen
+        return prog
     }()
     
     let buttonStack: UIStackView = {
@@ -45,8 +51,11 @@ class QuizViewController: UIViewController {
     }()
 
     @objc private func updateUI() {
-        if quizBrain.questionNumber < quizBrain.questions.count {
+        //let quizQuestionBank: [Question] = []
+        
+        if quizBrain.questionNumber < quizBrain.allQuestions.count {
             questionLabel.text = quizBrain.getQuestionText()
+            updateProgress()
             createAnswerButtons()
             resetButtonsToRed()
             
@@ -63,7 +72,7 @@ class QuizViewController: UIViewController {
     
     private func createAnswerButtons() {
         for (index, option) in
-                quizBrain.questions[quizBrain.questionNumber].options.enumerated() {
+                quizBrain.allQuestions[quizBrain.questionNumber].options.enumerated() {
             let button = UIButton()
             button.configuration = .borderedProminent()
             button.configuration?.baseBackgroundColor = .systemRed
@@ -73,7 +82,6 @@ class QuizViewController: UIViewController {
             button.addTarget(self, action: #selector(checkAnswer), for: .touchUpInside)
             button.configuration?.title = option
             answerButtons.append(button)
-            print(option)
         }
         updateButtonTitles()
     }
@@ -83,16 +91,22 @@ class QuizViewController: UIViewController {
         layout()
     }
     
-    init() {
+    init(with type: String) {
         super.init(nibName: nil, bundle: nil)
         updateUI()
+        self.quizType = type
+        print("IN QUIZ VC with QuizType: \(self.quizType)")
     }
     
     private func updateScore() {
         scoreLabel.text = "Score: \(quizBrain.score)"
     }
     
-    private func shakeAnimation() -> CAAnimation {
+    private func updateProgress() {
+        progressView.progress = quizBrain.progress / Float(quizBrain.allQuestions.count)
+    }
+    
+    private func blinkAnimation() -> CAAnimation {
         let animation = CABasicAnimation(keyPath: "opacity")
         animation.fromValue = 1
         animation.toValue = 0
@@ -102,31 +116,34 @@ class QuizViewController: UIViewController {
         return animation
     }
     
+    
     @objc private func checkAnswer(_sender: UIButton) {
-        if _sender.tag == quizBrain.questions[quizBrain.questionNumber].answerIndex {
+        if _sender.tag == quizBrain.allQuestions[quizBrain.questionNumber].answerIndex {
             quizBrain.score += 1
             quizBrain.questionNumber += 1
+            quizBrain.progress += 1
+            
             _sender.configuration?.baseBackgroundColor = .systemGreen
             
-            _sender.layer.add(shakeAnimation(), forKey: "opacity")
+            _sender.layer.add(blinkAnimation(), forKey: "opacity")
             
 
-            if quizBrain.questionNumber < quizBrain.questions.count {
-                createAnswerButtons()
+            if quizBrain.questionNumber < quizBrain.allQuestions.count {
+//                createAnswerButtons()
                 
-                Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
+                Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
                 
-                UIView.animate(withDuration: 0.1, animations: {
-                    _sender.transform = CGAffineTransform(translationX: 10, y: 0)
-                }, completion: { _ in
-                    UIView.animate(withDuration: 0.1, animations: {
-                        _sender.transform = CGAffineTransform(translationX: -10, y: 0)
-                    }, completion: { _ in
-                        UIView.animate(withDuration: 0.1, animations: {
-                            _sender.transform = CGAffineTransform.identity
-                        })
-                    })
-                })
+//                UIView.animate(withDuration: 0.1, animations: {
+//                    _sender.transform = CGAffineTransform(translationX: 10, y: 0)
+//                }, completion: { _ in
+//                    UIView.animate(withDuration: 0.1, animations: {
+//                        _sender.transform = CGAffineTransform(translationX: -10, y: 0)
+//                    }, completion: { _ in
+//                        UIView.animate(withDuration: 0.1, animations: {
+//                            _sender.transform = CGAffineTransform.identity
+//                        })
+//                    })
+//                })
             } else {
                 // if questionNumber goes out of bounds, show an alert or perform some other action
                 let alert = UIAlertController(title: "Quiz Complete", message: "You have finished the quiz!", preferredStyle: .alert)
@@ -136,12 +153,29 @@ class QuizViewController: UIViewController {
                 quizBrain.score = 0
                 updateUI()
             }
+        } else {
+            UIView.animate(withDuration: 0.5, animations: {
+                _sender.transform = CGAffineTransform(translationX: 10, y: 0)
+            }, completion: { _ in
+                UIView.animate(withDuration: 0.2, animations: {
+                    _sender.transform = CGAffineTransform(translationX: -10, y: 0)
+                    
+                }, completion: { _ in
+                    UIView.animate(withDuration: 0.8, animations: {
+                        _sender.transform = CGAffineTransform.identity
+                        _sender.configuration?.baseBackgroundColor = .systemBackground
+                    })
+                })
+            })
+            
+            _sender.layer.add(blinkAnimation(), forKey: "opacity")
+           
         }
     }
 
     
     private func updateButtonTitles() {
-        for (index, option) in quizBrain.questions[quizBrain.questionNumber].options.enumerated() {
+        for (index, option) in quizBrain.allQuestions[quizBrain.questionNumber].options.enumerated() {
             answerButtons[index].setTitle(option, for: .normal)
         }
         
@@ -161,6 +195,7 @@ class QuizViewController: UIViewController {
         
         view.addSubview(buttonStack)
         view.addSubview(scoreLabel)
+        view.addSubview(progressView)
         
         NSLayoutConstraint.activate([
             questionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
@@ -176,7 +211,12 @@ class QuizViewController: UIViewController {
             scoreLabel.topAnchor.constraint(equalTo: buttonStack.bottomAnchor, constant: 8),
             scoreLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
             scoreLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
-            scoreLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
+            scoreLabel.bottomAnchor.constraint(equalTo: progressView.topAnchor, constant: -10),
+            
+            progressView.topAnchor.constraint(equalTo: scoreLabel.bottomAnchor, constant: 8),
+            progressView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            progressView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+            progressView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
         ])
     }
 }

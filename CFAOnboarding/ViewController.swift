@@ -79,8 +79,8 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //let task = taskList[indexPath.row]
-        navigationController?.pushViewController(QuizViewController(), animated: true)
+        let task = taskList[indexPath.row]
+        navigationController?.pushViewController(TaskDetailViewController(with: task), animated: true)
     }
 }
 

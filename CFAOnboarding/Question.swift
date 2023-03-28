@@ -12,4 +12,5 @@ struct Question {
     var question: String
     var options: [String]
     var answerIndex: Int
+    var category: String
 }
