@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol TaskDelegate {
+    func didCompleteTask()
+    func didCompleteTask(of task: Task)
+}
+
 class TaskDetailViewController: UIViewController {
     var task: Task
-    var completed: Bool = false
+    var delegate: TaskDelegate
+    let defaults = UserDefaults.standard
     
     let taskTitleLabel: UILabel = {
         let label = UILabel()
@@ -19,7 +25,7 @@ class TaskDetailViewController: UIViewController {
         label.textAlignment = .center
         return label
     }()
-    
+
     let completedButton: UIButton = {
         let button = UIButton()
         button.configuration = .borderedProminent()
@@ -31,18 +37,20 @@ class TaskDetailViewController: UIViewController {
         return button
     }()
     
-    init(with task: Task) {
+    
+    init(with task: Task, delegate: TaskDelegate) {
         self.task = task
+        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
-        
+        //createSubTaskList()
+        checkCompletion()
         layout()
         taskTitleLabel.text = task.title
     }
     
-    @objc private func taskCompleted(_sender: UIButton) {
-        print("Task Completed")
-        completed = !completed
-        if completed {
+    private func checkCompletion() {
+        
+        if task.completed {
             completedButton.configuration = .borderedProminent()
             completedButton.configuration?.baseBackgroundColor = .systemGreen
             completedButton.configuration?.title = "Finished"
@@ -52,6 +60,18 @@ class TaskDetailViewController: UIViewController {
             completedButton.configuration?.baseBackgroundColor = .systemRed
         }
         
+    }
+    
+    @objc private func taskCompleted(_sender: UIButton) {
+        task.completed.toggle()
+        checkCompletion()
+        delegate.didCompleteTask(of: task)
+    }
+    
+    private func createSubTaskList() {
+        for task in task.subtasks {
+            print(task)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -75,5 +95,6 @@ class TaskDetailViewController: UIViewController {
         ])
     }
 }
+
 
 

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		9F8E9E2429C374BC00893102 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E9E2329C374BC00893102 /* AppDelegate.swift */; };
 		9F8E9E2629C374BC00893102 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E9E2529C374BC00893102 /* SceneDelegate.swift */; };
-		9F8E9E2829C374BC00893102 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E9E2729C374BC00893102 /* ViewController.swift */; };
+		9F8E9E2829C374BC00893102 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E9E2729C374BC00893102 /* TaskViewController.swift */; };
 		9F8E9E2D29C374BD00893102 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F8E9E2C29C374BD00893102 /* Assets.xcassets */; };
 		9F8E9E3029C374BD00893102 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F8E9E2E29C374BD00893102 /* LaunchScreen.storyboard */; };
 		9F8E9E3829C3765A00893102 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8E9E3729C3765A00893102 /* Task.swift */; };
@@ -34,7 +34,7 @@
 		9F8E9E2029C374BC00893102 /* CFAOnboarding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CFAOnboarding.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F8E9E2329C374BC00893102 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F8E9E2529C374BC00893102 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9F8E9E2729C374BC00893102 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9F8E9E2729C374BC00893102 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		9F8E9E2C29C374BD00893102 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F8E9E2F29C374BD00893102 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F8E9E3129C374BD00893102 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 			children = (
 				9F8E9E2329C374BC00893102 /* AppDelegate.swift */,
 				9F8E9E2529C374BC00893102 /* SceneDelegate.swift */,
-				9F8E9E2729C374BC00893102 /* ViewController.swift */,
+				9F8E9E2729C374BC00893102 /* TaskViewController.swift */,
 				9F8E9E3929C37AA700893102 /* TaskTableViewCell.swift */,
 				9F8E9E4A29C3943400893102 /* TaskDetailViewController.swift */,
 				9F8E9E4C29C7CD9E00893102 /* QuizViewController.swift */,
@@ -216,7 +216,7 @@
 				9FECCD3129CD451C00097E54 /* QuizCategoryCell.swift in Sources */,
 				9F8E9E3829C3765A00893102 /* Task.swift in Sources */,
 				9F8E9E4D29C7CD9E00893102 /* QuizViewController.swift in Sources */,
-				9F8E9E2829C374BC00893102 /* ViewController.swift in Sources */,
+				9F8E9E2829C374BC00893102 /* TaskViewController.swift in Sources */,
 				9FECCD2B29CD439600097E54 /* QuizCategoryCollectionVC.swift in Sources */,
 				9F8E9E5129CA49EE00893102 /* Question.swift in Sources */,
 				9F8E9E3A29C37AA700893102 /* TaskTableViewCell.swift in Sources */,

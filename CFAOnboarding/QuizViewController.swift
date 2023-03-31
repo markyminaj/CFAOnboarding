@@ -29,13 +29,16 @@ class QuizViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 24)
         label.textAlignment = .center
         label.numberOfLines = 0
+        
         return label
     }()
     
     let progressView: UIProgressView = {
-        let prog = UIProgressView()
+        let prog = UIProgressView(progressViewStyle: .default)
         prog.translatesAutoresizingMaskIntoConstraints = false
         prog.tintColor = .systemGreen
+        prog.sizeToFit()
+    
         return prog
     }()
     
@@ -51,7 +54,7 @@ class QuizViewController: UIViewController {
     }()
 
     @objc private func updateUI() {
-        print("INSIDE UPDATE UI")
+        
         guard quizBrain.questionNumber < questions.count else {
             showResult()
             print(questions.count)
@@ -80,7 +83,6 @@ class QuizViewController: UIViewController {
         }
     }
     
-    
     private func createAnswerButtons() {
         let currentQuestion = questions[quizBrain.questionNumber]
         for i in 0..<currentQuestion.options.count {
@@ -102,6 +104,7 @@ class QuizViewController: UIViewController {
         print("DEBUG - Question Count: \(questions.count)")
         updateUI()
         layout()
+        
     }
     
     

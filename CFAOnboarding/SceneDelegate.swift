@@ -8,7 +8,8 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
+    let defaults = UserDefaults.standard
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -24,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabviewVC.tabBar.backgroundColor = .systemBackground
         tabviewVC.tabBar.tintColor = .systemCyan
         let quizCatVC = QuizCategoryCollectionVC()
-        let listviewVC = ViewController()
+        let listviewVC = TaskViewController()
         
         listviewVC.title = "Tasks"
         listviewVC.tabBarItem = UITabBarItem(title: "Tasks", image: UIImage(systemName: "pencil.circle"), tag: 0)

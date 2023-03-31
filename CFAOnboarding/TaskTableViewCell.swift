@@ -41,6 +41,15 @@ class TaskTableViewCell: UITableViewCell {
         return lb
     }()
     
+    private let checkmarkView: UIImageView = {
+        let iv = UIImageView()
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.clipsToBounds = true
+        iv.tintColor = .systemGreen
+        iv.contentMode = .scaleAspectFit
+        return iv
+    }()
+    
     private let progressBar: UIProgressView = {
         let pv = UIProgressView()
         pv.translatesAutoresizingMaskIntoConstraints = false
@@ -49,12 +58,22 @@ class TaskTableViewCell: UITableViewCell {
         return pv
     }()
     
-    private let stackView: UIStackView = {
+    
+    private let labelStackView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .vertical
         sv.translatesAutoresizingMaskIntoConstraints = false
-        sv.spacing = 8
-        
+        sv.spacing = 4
+        return sv
+    }()
+    
+    private let checkmarkAndLabelStackView: UIStackView = {
+        let sv = UIStackView()
+        sv.axis = .horizontal
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        sv.distribution = .fillProportionally
+        sv.contentMode = .scaleAspectFill
+        sv.spacing = 10
         return sv
     }()
     
@@ -68,18 +87,33 @@ class TaskTableViewCell: UITableViewCell {
     }
     
     private func configureUI() {
-        stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(descriptionLabel)
-        stackView.addArrangedSubview(progressBar)
+        
+        
+        labelStackView.addArrangedSubview(titleLabel)
+        labelStackView.addArrangedSubview(descriptionLabel)
+        labelStackView.addArrangedSubview(progressBar)
+        
+        checkmarkAndLabelStackView.addArrangedSubview(checkmarkView)
+        checkmarkAndLabelStackView.addArrangedSubview(labelStackView)
+        
+        contentView.addSubview(checkmarkAndLabelStackView)
         
         accessoryType = .disclosureIndicator
-        contentView.addSubview(stackView)
         
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
-            stackView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 12),
-            stackView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -12),
-            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12)
+            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -50),
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            labelStackView.widthAnchor.constraint(equalToConstant: 350),
+            
+            checkmarkAndLabelStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            checkmarkAndLabelStackView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 12),
+            checkmarkAndLabelStackView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -12),
+            checkmarkAndLabelStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12),
+            checkmarkAndLabelStackView.heightAnchor.constraint(equalToConstant: 150),
+    
+            checkmarkView.heightAnchor.constraint(equalToConstant: 40),
+            checkmarkView.widthAnchor.constraint(equalToConstant: 40)
+            
         ])
     }
     
@@ -87,5 +121,14 @@ class TaskTableViewCell: UITableViewCell {
         titleLabel.text = task.title
         descriptionLabel.text = task.description
         progressBar.progress = task.progress
+        
+        if task.completed {
+            checkmarkView.image = UIImage(systemName: "checkmark.circle.fill")
+            print("CELL COMPLETED: \(task.title) is \(task.completed)")
+        } else {
+            checkmarkView.image = UIImage(systemName: "circle")
+            print("CELL NOT COMPLETED: \(task.title) is \(task.completed)")
+        }
+        
     }
 }

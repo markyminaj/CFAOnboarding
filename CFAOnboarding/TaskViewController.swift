@@ -8,9 +8,18 @@
 import UIKit
 
 
-class ViewController: UIViewController {
+class TaskViewController: UIViewController, TaskDelegate {
+    func didCompleteTask() {
+
+    }
     
-    let taskList = TaskList.tasks
+    func didCompleteTask(of task: Task) {
+        taskList[taskSelected] = task
+        tableView.reloadData()
+    }
+    let defaults = UserDefaults.standard
+    var taskSelected: Int = 0
+    var taskList = TaskList.tasks
     
     var tableView = UITableView()
     let taskCellID = "cellID"
@@ -20,15 +29,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        title = "Tasks"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        tableView.reloadData()
     }
 }
 
-extension ViewController {
+extension TaskViewController {
     private func setup() {
         setupHeaderImage()
         setupTableView()
@@ -69,11 +80,12 @@ extension ViewController {
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension TaskViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: taskCellID, for: indexPath) as! TaskTableViewCell
         cell.configure(task: taskList[indexPath.row])
         cell.selectionStyle = .none
+        print("Task: \(taskList[indexPath.row].title) is \(taskList[indexPath.row].completed)")
         return cell
     }
     
@@ -82,10 +94,11 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
-extension ViewController: UITableViewDelegate {
+extension TaskViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let task = taskList[indexPath.row]
-        navigationController?.pushViewController(TaskDetailViewController(with: task), animated: true)
+        taskSelected = indexPath.row
+        navigationController?.pushViewController(TaskDetailViewController(with: task, delegate: self), animated: true)
     }
 }
 
